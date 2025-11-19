@@ -21,9 +21,9 @@ accordionBtns.forEach((accordion, index) => {
     content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
   });
 
-  // Keyboard interactions
   accordion.addEventListener("keydown", (e) => {
-    const key = e.key;
+    const { key } = e;
+
     if (key === "Enter" || key === " ") {
       e.preventDefault();
       accordion.click();
@@ -44,3 +44,4 @@ accordionBtns.forEach((accordion, index) => {
     }
   });
 });
+
