@@ -1,9 +1,15 @@
-/* body {
-	background-color: #6DC4F4;
-}h1 { 
-     color:white;
- 
-} */
+body {
+  background-color: #6DC4F4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
 
 .container {
   width: 80%;
@@ -14,8 +20,8 @@
 button.accordion {
   width: 100%;
   background-color: whitesmoke;
-  border: none;
-
+  border: 2px solid #ccc;
+  outline: none;
   text-align: left;
   padding: 15px 20px;
   font-size: 18px;
@@ -27,7 +33,6 @@ button.accordion {
 button.accordion:after {
   font-family: FontAwesome;
   content: "\f150";
-  font-family: "fontawesome";
   font-size: 18px;
   float: right;
 }
@@ -41,10 +46,16 @@ button.accordion.is-open {
   background-color: #ddd;
 }
 
+button.accordion:focus-visible {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
 .accordion-content {
   background-color: white;
   border-left: 1px solid whitesmoke;
   border-right: 1px solid whitesmoke;
+  border-top: 1px solid #ddd;
   padding: 0 20px;
   max-height: 0;
   overflow: hidden;

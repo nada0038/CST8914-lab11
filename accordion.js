@@ -11,20 +11,36 @@
 
 const accordionBtns = document.querySelectorAll(".accordion");
 
-accordionBtns.forEach((accordion) => {
-  accordion.onclick = function () {
-    this.classList.toggle("is-open");
+accordionBtns.forEach((accordion, index) => {
+  accordion.addEventListener("click", () => {
+    const isOpen = accordion.getAttribute("aria-expanded") === "true";
+    accordion.setAttribute("aria-expanded", !isOpen);
+    accordion.classList.toggle("is-open");
 
-    let content = this.nextElementSibling;
-    console.log(content);
+    const content = accordion.nextElementSibling;
+    content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
+  });
 
-    if (content.style.maxHeight) {
-      //this is if the accordion is open
-      content.style.maxHeight = null;
-    } else {
-      //if the accordion is currently closed
-      content.style.maxHeight = content.scrollHeight + "px";
-      console.log(content.style.maxHeight);
+  // Keyboard interactions
+  accordion.addEventListener("keydown", (e) => {
+    const key = e.key;
+    if (key === "Enter" || key === " ") {
+      e.preventDefault();
+      accordion.click();
+    } else if (key === "ArrowDown") {
+      e.preventDefault();
+      const next = accordionBtns[index + 1] || accordionBtns[0];
+      next.focus();
+    } else if (key === "ArrowUp") {
+      e.preventDefault();
+      const prev = accordionBtns[index - 1] || accordionBtns[accordionBtns.length - 1];
+      prev.focus();
+    } else if (key === "Home") {
+      e.preventDefault();
+      accordionBtns[0].focus();
+    } else if (key === "End") {
+      e.preventDefault();
+      accordionBtns[accordionBtns.length - 1].focus();
     }
-  };
+  });
 });
