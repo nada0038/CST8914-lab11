@@ -45,3 +45,5 @@ accordionBtns.forEach((accordion, index) => {
   });
 });
 
+
+
