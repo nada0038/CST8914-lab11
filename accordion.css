@@ -1,12 +1,13 @@
-body {
-  background-color: #6DC4F4;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+/* body {
+	background-color: #6DC4F4;
+}h1 { 
+     color:white;
+ 
+} */
+
 
 h1 {
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   margin-bottom: 40px;
 }
